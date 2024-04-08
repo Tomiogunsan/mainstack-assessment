@@ -22,7 +22,7 @@ export interface IGetUserResponse {
   email: string;
 }
 
-export interface IGetWallet {
+export interface IGetWalletResponse {
   balance: number;
   total_payout: number;
   total_revenue: number;
