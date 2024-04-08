@@ -8,7 +8,7 @@ export const getWallet = () => {
 
 
 export const getTransactions = () => {
-    return api.get<IGetTransactionResponse>(GET_TRANSACTIONS);
+    return api.get<IGetTransactionResponse[]>(GET_TRANSACTIONS);
 }
 
 export const getUser = () => {

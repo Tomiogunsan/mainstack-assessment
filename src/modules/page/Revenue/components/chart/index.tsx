@@ -1,7 +1,62 @@
+import { useGetTransactions } from "@hooks/revenue/useGetTransactions";
 import { useGetWallet } from "@hooks/revenue/useGetWallet";
+import { IGetTransactionResponse } from "@services/interface/response/revenue";
+import { formatDate } from "@utils/constant";
+import ReactApexChart from "react-apexcharts";
+import { ApexOptions } from "apexcharts";
 
 const Chart = () => {
-    const {walletData} = useGetWallet()
+  const { walletData } = useGetWallet();
+  const { transactionData } = useGetTransactions();
+  const transactionAmount = transactionData?.flatMap(
+    (data: IGetTransactionResponse) => data.amount
+  );
+  const transactionDate = transactionData?.flatMap(
+    (data: IGetTransactionResponse) => formatDate(data.date)
+  );
+
+  const transactionDateResult = transactionDate || [];
+  const series: ApexAxisChartSeries | ApexNonAxisChartSeries = [
+    {
+      name: "Series 1",
+      data: transactionAmount as number[],
+    },
+  ];
+
+  const options: ApexOptions = {
+    chart: {
+      type: "line",
+      toolbar: {
+        show: false,
+      },
+    },
+    colors: ["#FF5403"],
+    stroke: {
+      width: 1,
+      curve: "smooth",
+    },
+    xaxis: {
+      categories: transactionDateResult,
+      labels: {
+        rotate: 0,
+        // formatter: (value, index, { seriesIndex, dataPointIndex, w }) => {
+        //   // Check if the label is the first or the last in the array
+        //   if (index === 0 || index === transactionDateResult.length - 1) {
+        //     return value; // Show the label
+        //   }
+        //   return ""; // Hide all other labels
+        // },
+      },
+    },
+    yaxis: {
+      labels: {
+        show: false,
+      },
+    },
+    grid: {
+      show: false,
+    },
+  };
   return (
     <div className=" col-span-2">
       <div className="flex gap-[64px] items-center">
@@ -12,11 +67,16 @@ const Chart = () => {
           </p>
         </div>
 
-       
         <button className="text-[16px] leading-[24px] font-[600] text-[#fff] bg-black  py-[14px] rounded-[100px] w-[167px]">
           Withdraw
         </button>
       </div>
+      <ReactApexChart
+        options={options}
+        series={series}
+        type="line"
+        height={350}
+      />
     </div>
   );
 };

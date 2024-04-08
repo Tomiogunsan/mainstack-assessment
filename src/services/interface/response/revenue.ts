@@ -9,7 +9,7 @@ export interface IMetaData {
 
 export interface IGetTransactionResponse {
   amount: number;
-  metadata: IMetaData[];
+  metadata: IMetaData;
   payment_reference: string;
   status: string;
   type: string;
