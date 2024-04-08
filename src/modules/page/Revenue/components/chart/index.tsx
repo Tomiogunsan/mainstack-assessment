@@ -39,6 +39,7 @@ const Chart = () => {
       categories: transactionDateResult,
       labels: {
         rotate: 0,
+        offsetX: 8
         // formatter: (value, index, { seriesIndex, dataPointIndex, w }) => {
         //   // Check if the label is the first or the last in the array
         //   if (index === 0 || index === transactionDateResult.length - 1) {
@@ -58,7 +59,7 @@ const Chart = () => {
     },
   };
   return (
-    <div className=" col-span-2">
+    <div className=" col-span-2 ">
       <div className="flex gap-[64px] items-center">
         <div>
           <p>Available Balance</p>
@@ -71,12 +72,14 @@ const Chart = () => {
           Withdraw
         </button>
       </div>
-      <ReactApexChart
-        options={options}
-        series={series}
-        type="line"
-        height={350}
-      />
+      
+        <ReactApexChart
+          options={options}
+          series={series}
+          type="line"
+          height={250}
+        />
+      
     </div>
   );
 };
