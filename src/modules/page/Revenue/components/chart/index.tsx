@@ -14,7 +14,7 @@ const Chart = () => {
   const transactionDate = transactionData?.flatMap(
     (data: IGetTransactionResponse) => formatDate(data.date)
   );
-
+  console.log(transactionDate);
   const transactionDateResult = transactionDate || [];
   const series: ApexAxisChartSeries | ApexNonAxisChartSeries = [
     {
@@ -39,14 +39,13 @@ const Chart = () => {
       categories: transactionDateResult,
       labels: {
         rotate: 0,
-        offsetX: 8
-        // formatter: (value, index, { seriesIndex, dataPointIndex, w }) => {
-        //   // Check if the label is the first or the last in the array
-        //   if (index === 0 || index === transactionDateResult.length - 1) {
-        //     return value; // Show the label
-        //   }
-        //   return ""; // Hide all other labels
-        // },
+        offsetX: 4,
+        formatter: (value) => {
+          if (value === "Mar 03, 2022" || value === "Feb 20, 2022") {
+            return value;
+          }
+          return "";
+        },
       },
     },
     yaxis: {
@@ -72,14 +71,13 @@ const Chart = () => {
           Withdraw
         </button>
       </div>
-      
-        <ReactApexChart
-          options={options}
-          series={series}
-          type="line"
-          height={250}
-        />
-      
+
+      <ReactApexChart
+        options={options}
+        series={series}
+        type="line"
+        height={280}
+      />
     </div>
   );
 };
