@@ -14,7 +14,7 @@ const Chart = () => {
   const transactionDate = transactionData?.flatMap(
     (data: IGetTransactionResponse) => formatDate(data.date)
   );
-  console.log(transactionDate);
+
   const transactionDateResult = transactionDate || [];
   const series: ApexAxisChartSeries | ApexNonAxisChartSeries = [
     {

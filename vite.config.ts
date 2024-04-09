@@ -6,7 +6,7 @@ import * as path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), tsconfigPath(), svgr()],
+  plugins: [react(), tsconfigPath(), svgr({})],
   resolve: {
     alias: [{
       find: '@',

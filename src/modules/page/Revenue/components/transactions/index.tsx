@@ -1,8 +1,11 @@
 import { useGetTransactions } from "@hooks/revenue/useGetTransactions";
+import { useState } from "react";
 
 import ReusableTransactionCard from "shared/ReusableTransactionCard";
+import TransactionFilterDrawer from "./components/TransactionFilterDrawer";
 
 const Transaction = () => {
+    const [openDrawer, setOpenDrawer] = useState(false)
   const { transactionData } = useGetTransactions();
   const transactionDate = transactionData?.map((data) => data.date);
 
@@ -35,7 +38,7 @@ const Transaction = () => {
           </p>
         </div>
         <div className="flex gap-2">
-          <button className="px-[20px] py-[12px] rounded-[100px] bg-lightGray text-black text-[16px] leading-6 font-[600]">
+          <button className="px-[20px] py-[12px] rounded-[100px] bg-lightGray text-black text-[16px] leading-6 font-[600]" onClick={() => setOpenDrawer(true)}> 
             Filter
           </button>
           <button className="px-[20px] py-[12px] rounded-[100px] bg-lightGray text-black text-[16px] leading-6 font-[600]">
@@ -67,6 +70,8 @@ const Transaction = () => {
           );
         })}
       </div>
+
+      {openDrawer && <TransactionFilterDrawer onClose={() => setOpenDrawer(false)}/>}
     </div>
   );
 };

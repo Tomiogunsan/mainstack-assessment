@@ -19,7 +19,7 @@ const ReusableTransactionCard = ({isMetaData , amount,date, depositorName, produ
           </div>
           <div>
             <p className="text-[16px] leading-[24px] font-[700] text-black">
-              USD<span>{amount}</span>
+              USD<span>{amount?.toFixed(2)}</span>
             </p>
             <p className="text-[14px] laeding-[16px] font-[500] text-gray">
               {formatDate(date)}
@@ -42,7 +42,7 @@ const ReusableTransactionCard = ({isMetaData , amount,date, depositorName, produ
           </div>
           <div>
             <p className="text-[16px] leading-[24px] font-[700] text-black">
-              USD<span>{amount}</span>
+              USD<span>{amount?.toFixed(2)}</span>
             </p>
             <p className="text-[14px] laeding-[16px] font-[500] text-gray">
               {formatDate(date)}

@@ -45,4 +45,9 @@
   body {
     font-family: "Degular", sans-serif;
   }
+
+  input[type="date"]::-webkit-calendar-picker-indicator{
+   /* style goes here */
+   display: none;
+}
 }
