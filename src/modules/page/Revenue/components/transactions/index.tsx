@@ -1,8 +1,9 @@
 import { useGetTransactions } from "@hooks/revenue/useGetTransactions";
 import { useState } from "react";
-
+import download from '@assets/svg/download.svg'
 import ReusableTransactionCard from "shared/ReusableTransactionCard";
 import TransactionFilterDrawer from "./components/TransactionFilterDrawer";
+import expandmore from '@assets/svg/expand_more.svg'
 
 const Transaction = () => {
     const [openDrawer, setOpenDrawer] = useState(false)
@@ -38,11 +39,16 @@ const Transaction = () => {
           </p>
         </div>
         <div className="flex gap-2">
-          <button className="px-[20px] py-[12px] rounded-[100px] bg-lightGray text-black text-[16px] leading-6 font-[600]" onClick={() => setOpenDrawer(true)}> 
+          <button
+            className=" flex item-center px-[20px] py-[12px] rounded-[100px] bg-lightGray text-black text-[16px] leading-6 font-[600]"
+            onClick={() => setOpenDrawer(true)}
+          >
             Filter
+            <img src={expandmore} alt="expand icon" className="pl-2 mt-[4px]" />
           </button>
-          <button className="px-[20px] py-[12px] rounded-[100px] bg-lightGray text-black text-[16px] leading-6 font-[600]">
+          <button className=" flex items-center px-[20px] py-[12px] rounded-[100px] bg-lightGray text-black text-[16px] leading-6 font-[600]">
             Export list
+            <img src={download} alt="expand icon" className="pl-2 mt-[2px]" />
           </button>
         </div>
       </div>
@@ -71,7 +77,9 @@ const Transaction = () => {
         })}
       </div>
 
-      {openDrawer && <TransactionFilterDrawer onClose={() => setOpenDrawer(false)}/>}
+      {openDrawer && (
+        <TransactionFilterDrawer onClose={() => setOpenDrawer(false)} />
+      )}
     </div>
   );
 };

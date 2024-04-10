@@ -2,6 +2,7 @@ import { useGetWallet } from "@hooks/revenue/useGetWallet"
 import ReuseableWalletCard from "shared/ReusableWalletCard"
 
 
+
 const Wallet = () => {
     const{walletData} = useGetWallet()
     

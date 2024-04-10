@@ -1,4 +1,5 @@
 import { IReuseableWalletCardProps } from "./interface";
+import info from '@assets/svg/info.svg'
 
 const ReuseableWalletCard = ({ title, amount }: IReuseableWalletCardProps) => {
   return (
@@ -13,7 +14,7 @@ const ReuseableWalletCard = ({ title, amount }: IReuseableWalletCardProps) => {
           </p>
         </div>
 
-        <p>icon</p>
+        <img src={info} alt='info icon' className="w-[20px] h-[20px]"/>
       </div>
     </>
   );
