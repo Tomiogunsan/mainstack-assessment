@@ -1,13 +1,13 @@
 import { FieldValues, useController } from "react-hook-form";
 import ControlledInput from "shared/Input/ControlledInput";
-import expandmore from '@assets/svg/expand_more.svg'
+
 import { twMerge } from "tailwind-merge";
 import { IFilterStartEndDate } from "./interface";
 
 const FilterStartEndDate = <TFieldValue extends FieldValues>(
   props: IFilterStartEndDate<TFieldValue>
 ) => {
-  const { label, className, name , placeholder} = props;
+  const { label, className, name, placeholder } = props;
 
   const { field: startField } = useController({
     name: name.start,
@@ -42,7 +42,6 @@ const FilterStartEndDate = <TFieldValue extends FieldValues>(
             }}
             placeholder={placeholder}
           />
-          <img src={expandmore} alt="icon"  />
         </div>
         <div className="w-[171px] h-max">
           <ControlledInput

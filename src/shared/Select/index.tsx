@@ -124,7 +124,7 @@ const Select = (props: ISelectProps) => {
   };
 
   const menuItemPadding = "!px-[24px] !py-[9px]";
-  const menuItemClassName = `${menuItemPadding} !text-[12px] !justify-between !items-center !gap-[8px] !w-full !cursor-pointer`;
+  const menuItemClassName = `${menuItemPadding} !text-[12px]  !items-center !gap-[8px] !w-full !cursor-pointer`;
   const values = multiple
     ? ((value || selectedValues) as string[])
     : ((value || selectedValues) as string);
@@ -139,7 +139,7 @@ const Select = (props: ISelectProps) => {
   return (
     <div className="w-full max-w-full h-max overflow-hidden">
       {label && (
-        <label className="text-[13px] leading-5 text-[#333]">{label}</label>
+        <label className="pb-[3px] text-[#333333] font-bold">{label}</label>
       )}
       {/* {labelHelperText && (
         <FieldLabelHelperText {...(labelHelperTextProps || {})}>
@@ -197,7 +197,7 @@ const Select = (props: ISelectProps) => {
         classes={{
           ...classes,
           root: twMerge(
-            "!grid grid-flow-col gap-2 auto-cols-auto-max",
+            "!grid grid-flow-col gap-2 auto-cols-auto-max bg-[#EFF1F6]",
             classes?.root
           ),
           icon: twMerge("!static mr-[12px]", classes?.icon),
@@ -229,7 +229,7 @@ const Select = (props: ISelectProps) => {
           ) : null
         }
       >
-         {/* {searchable && (
+        {/* {searchable && (
           <div
             className={twMerge(
               menuItemPadding,
@@ -287,21 +287,17 @@ const Select = (props: ISelectProps) => {
                 option?.onClick?.();
               }}
             >
+              {singleSelection && (
+                <Checkbox sx={{ "&.Mui-checked": { color: "#131316" } }} />
+              )}
+              {multiple && (
+                <Checkbox sx={{ "&.Mui-checked": { color: "#131316" } }} />
+              )}
               <div className="flex items-center">
                 {option.startAdornment}
                 {label}
                 {option.endAdornment}
               </div>
-              {singleSelection && (
-                <Checkbox sx={{ "&.Mui-checked": { color: "#F58320" } }} />
-              )}
-              {multiple && (
-                <Checkbox sx={{ "&.Mui-checked": { color: "#F58320" } }} />
-                // <CheckboxComponent
-                //   checked={values.indexOf(value) > -1}
-                //   className="w-max"
-                // />
-              )}
             </MenuItem>
           );
         })}

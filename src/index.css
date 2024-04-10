@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,19 +11,22 @@
 
 @font-face {
   font-family: "Degular";
-  src: url("./assets/fonts/fonnts.com-DegularDemo-Medium.otf") format("opentype");
+  src: url("./assets/fonts/fonnts.com-DegularDemo-Medium.otf")
+    format("opentype");
   font-weight: 500; /* Medium */
 }
 
 @font-face {
   font-family: "Degular";
-  src: url("./assets/fonts/fonnts.com-DegularDemo-Regular.otf") format("opentype");
+  src: url("./assets/fonts/fonnts.com-DegularDemo-Regular.otf")
+    format("opentype");
   font-weight: 400; /* Regular */
 }
 
 @font-face {
   font-family: "Degular";
-  src: url("./assets/fonts/fonnts.com-DegularDemo-Semibold.otf") format("opentype");
+  src: url("./assets/fonts/fonnts.com-DegularDemo-Semibold.otf")
+    format("opentype");
   font-weight: 600; /* Semi-bold */
 }
 
@@ -46,8 +50,13 @@
     font-family: "Degular", sans-serif;
   }
 
-  input[type="date"]::-webkit-calendar-picker-indicator{
-   /* style goes here */
-   display: none;
-}
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: "#131316";
+    filter: invert(1);
+  }
+
+  input[type="date"]::-webkit-calendar-picker-popup {
+    color: "#131316";
+    background-color: lightblue;
+  }
 }

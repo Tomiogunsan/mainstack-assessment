@@ -48,6 +48,7 @@ const Input = (props: IInputProps) => {
           ) : null
         }
         inputProps={{ maxlength: maxlength }}
+        color="primary"
       />
 
       {/* <FieldHelperText error={props.error} helperText={helperText} /> */}
