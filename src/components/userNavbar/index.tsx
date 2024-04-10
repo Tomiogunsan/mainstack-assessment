@@ -18,13 +18,15 @@ const UserNavbar = () => {
           <p className="text-[14px] text-gray">{userData?.email}</p>
         </div>
       </div>
-      {userNav.map((nav, idx) => {
-        return (
-          <div key={idx} className="grid gap-y-4">
-            <p>{nav}</p>
-          </div>
-        );
-      })}
+      <div className="pt-8 grid gap-y-6">
+        {userNav.map((nav, idx) => {
+          return (
+            <div key={idx} >
+              <p>{nav}</p>
+            </div>
+          );
+        })}
+      </div>
     </MenuDropDown>
   );
 };

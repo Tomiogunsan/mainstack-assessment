@@ -1,16 +1,16 @@
 import { middleNav } from "@constants/nav";
 import { Link } from "react-router-dom";
-import logo from '@assets/svg/mainstack-logo.svg'
-import bell from '@assets/svg/small tertiary button.svg'
-import message from '@assets/svg/Frame 6853.svg'
-import menu from '@assets/svg/menu.svg'
+import logo from "@assets/svg/mainstack-logo.svg";
+import bell from "@assets/svg/small tertiary button.svg";
+import message from "@assets/svg/Frame 6853.svg";
+import menu from "@assets/svg/menu.svg";
 import { useGetUser } from "@hooks/revenue/useGetUser";
 import UserNavbar from "components/userNavbar";
 import { useState } from "react";
 
 const Navbar = () => {
-const [showUserNav, setShowUserNav] = useState(false)
-  const {userData} = useGetUser()
+  const [showUserNav, setShowUserNav] = useState(false);
+  const { userData } = useGetUser();
   return (
     <div className="flex justify-between  items-center m-6 border-[2px] border-[#fff] rounded-[100px] shadow-sm shadow-[#2D3B43]/50 h-[64px] px-[38px]">
       <div>
@@ -37,8 +37,7 @@ const [showUserNav, setShowUserNav] = useState(false)
         <div
           className="flex items-center gap-2 bg-lightGray rounded-[100px] px-[12px] py-[4px]"
           onClick={() => {
-            console.log("hi");
-            setShowUserNav(true);
+            setShowUserNav(!showUserNav);
           }}
         >
           <p className="w-[32px] h-[32px] flex items-center p-2 rounded-full text-[#fff] text-[14px] leading-[16px] font-[600] bg-[#5C6670]">
