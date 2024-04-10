@@ -1,5 +1,5 @@
 import Chart from "./components/chart";
-import Navbar from "./components/navbar"
+import Navbar from "../../../components/navbar"
 import SideIcons from "./components/sideIcons"
 import Transaction from "./components/transactions";
 import Wallet from "./components/wallet";
