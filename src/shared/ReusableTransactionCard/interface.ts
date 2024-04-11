@@ -5,4 +5,5 @@ export interface IReusableTransactionProps {
   withdrawalStatus?: string;
   date: string;
   amount: number | undefined;
+  isLoading: boolean;
 }

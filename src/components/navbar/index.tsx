@@ -42,9 +42,11 @@ const Navbar = () => {
         <div
           className={` ${
             showBio === true
-          } ? bg-black text-white flex  px-4 py-2 rounded-[100px] : ' bg-white' gap-2 cursor-pointer`}
+              ? "bg-black flex text-white  px-4 py-2 rounded-[100px] "
+              : " bg-white "
+          } flex  gap-2 cursor-pointer`}
           onClick={() => {
-            setShowBio(!showBio);
+            setShowBio((prev) => !prev);
           }}
         >
           <img src={apps} alt="icon" />

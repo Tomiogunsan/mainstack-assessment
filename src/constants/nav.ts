@@ -11,7 +11,7 @@ import copy from '@assets/svg/copy.svg'
 export const middleNav = [
   {
     name: "Home",
-    path: "/",
+    path: "/home",
     icon: home,
   },
   {

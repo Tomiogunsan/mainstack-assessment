@@ -7,7 +7,7 @@ import expandmore from '@assets/svg/expand_more.svg'
 
 const Transaction = () => {
     const [openDrawer, setOpenDrawer] = useState(false)
-  const { transactionData } = useGetTransactions();
+  const { transactionData, transactionIsLoading } = useGetTransactions();
   const transactionDate = transactionData?.map((data) => data.date);
 
   const calculateTotalDays = () => {
@@ -63,6 +63,7 @@ const Transaction = () => {
                   depositorName={data.metadata?.name}
                   productName={data.metadata?.product_name}
                   isMetaData
+                  isLoading={transactionIsLoading}
                 />
               ) : (
                 <ReusableTransactionCard
@@ -70,6 +71,7 @@ const Transaction = () => {
                   date={data.date}
                   isMetaData={false}
                   withdrawalStatus={data.status}
+                  isLoading={transactionIsLoading}
                 />
               )}
             </>
