@@ -1,13 +1,10 @@
-import React from 'react';
-import { FieldValues, UseFormReturn } from 'react-hook-form';
-import { IButtonProps } from 'shared/Button/interface';
+import React from "react";
+import { FieldValues, UseFormReturn } from "react-hook-form";
 
 export type IModalActionProps = {
   show?: boolean;
   text?: React.ReactNode;
-  variant?: IButtonProps['variant'];
-  color?: IButtonProps['color'];
-  onClick?: (_data: any) => void;
+
   disabled?: boolean;
   className?: string;
   loading?: boolean;
