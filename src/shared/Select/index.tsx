@@ -75,13 +75,6 @@ const Select = (props: ISelectProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
-  // useEffect(() => {
-  //   if (onSearch) {
-  //     onSearch(searchQuery);
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [searchQuery]);
-
   const onSelectedChange = (event: SelectChangeEvent<unknown>) => {
     if (multiple) {
       let newSelectedValues = (event.target.value as string[]).filter(
@@ -134,18 +127,11 @@ const Select = (props: ISelectProps) => {
     .filter((option: any) => !searchQuery || option.label.match(reg))
     .map((option: any) => option.value);
 
-  // const EoLRef = useRef<HTMLDivElement>(null);
-
   return (
     <div className="w-full max-w-full h-max overflow-hidden">
       {label && (
         <label className="pb-[3px] text-[#333333] font-bold">{label}</label>
       )}
-      {/* {labelHelperText && (
-        <FieldLabelHelperText {...(labelHelperTextProps || {})}>
-          {labelHelperText}
-        </FieldLabelHelperText>
-      )} */}
 
       <MUISelect
         {...rest}
@@ -229,38 +215,6 @@ const Select = (props: ISelectProps) => {
           ) : null
         }
       >
-        {/* {searchable && (
-          <div
-            className={twMerge(
-              menuItemPadding,
-              "sticky top-0 bg-white z-[1] !py-[16px]"
-            )}
-            onClick={(e) => {
-              e.stopPropagation();
-              e.preventDefault();
-            }}
-          >
-            <Input
-              className="!pl-0 !rounded-[12px]"
-              startAdornment={<Search />}
-              startAdornmentProps={{
-                className: "!border-0",
-              }}
-              onKeyDown={(e) => {
-                e.stopPropagation();
-              }}
-              onClick={(e) => {
-                e.stopPropagation();
-                e.preventDefault();
-              }}
-              placeholder="Search"
-              onChange={(value) => {
-                setSearchQuery(value.target.value);
-              }}
-            />
-          </div>
-        )} */}
-        {/* {title && <p className="pl-4">{title}</p>}  */}
         {/* <MenuList> */}
         {multiple && showSelectAll && (
           <MenuItem
